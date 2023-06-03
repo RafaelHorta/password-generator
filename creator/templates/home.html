@@ -1,0 +1,52 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <form method="post" class="card card-body" style="background-color: #212121;" id="frm-password">
+        <h1 class="text-center h3">Password Generator</h1>
+        <div>
+            <label for="length" class="form-label">Select the length of your password</label>
+            <select name="length" id="length" class="form-control">
+                <option value="6">6 Characters</option>
+                <option value="7">7 Characters</option>
+                <option value="8">8 Characters</option>
+                <option value="9">9 Characters</option>
+                <option value="10">10 Characters</option>
+                <option value="11">11 Characters</option>
+                <option value="12">12 Characters</option>
+                <option value="13">13 Characters</option>
+                <option value="14">14 Characters</option>
+                <option value="15">15 Characters</option>
+                <option value="16">16 Characters</option>
+                <option value="17">17 Characters</option>
+                <option value="18">18 Characters</option>
+                <option value="19">19 Characters</option>
+                <option value="20">20 Characters</option>
+            </select>
+        </div>
+        <div class="form-check form-switch my-2">
+            <label for="uppercase" class="form-check-label">Uppercase</label>
+            <input type="checkbox" name="uppercase" class="form-check-input" id="uppercase">
+        </div>
+        <div class="form-check form-switch my-2">
+            <label for="special" class="form-check-label">Special Characters</label>
+            <input type="checkbox" name="special" class="form-check-input" id="special">
+        </div>
+        <div class="form-check form-switch my-2">
+            <label for="numbers" class="form-check-label">Numbers</label>
+            <input type="checkbox" name="numbers" class="form-check-input" id="numbers">
+        </div>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark">Generate</button>
+    </form>
+    <div class="card card-body bg-dark text-center mt-3">
+        <h4>Password</h4>
+        <span id="password"></span>
+    </div>
+</div>
+
+<script src="{% static 'js/password.js' %}"></script>
+
+{% endblock %}
